@@ -8,7 +8,7 @@
 <body>
   
   <div class="component">
-
+    <ul class="element"></ul>
   </div>
 
 
@@ -24,15 +24,15 @@
 
     btnElement.appendChild(textBtnElement)
     component.appendChild(btnElement)
-    
+
+    var ulElement = document.querySelector('.element')
+
     var nomes = ["Diego", "Gabriel", "Lucas"]
-    
-    for(nome of nomes) {
-      criarElemento(`● ${nome}`)
-    }
 
     function adicionar() {
-      criarElemento(`● ${inputElement.value}`);
+      nomes.push(inputElement.value)
+
+      renderizaElemento();
 
       inputElement.value = "";
 
@@ -40,13 +40,36 @@
       
     }
    
-    function criarElemento(nome) {
-      var list = document.createElement('ul')
-      var textElement = document.createTextNode(nome)
+    function renderizaElemento() {
+      ulElement.innerHTML = ''
 
-      list.appendChild(textElement)
-      component.appendChild(list)
+      for(nome of nomes) {
+        var list = document.createElement('li')
+        var textElement = document.createTextNode(nome)
+
+        var deletar = document.createElement('a')
+        deletar.setAttribute('href', '#')
+
+        var nomeDeletar = document.createTextNode('Excluir')
+
+        var pos = nomes.indexOf(nome)
+        deletar.setAttribute('onclick', 'excluirElemento(' + pos +')')
+
+        list.appendChild(textElement)
+        ulElement.appendChild(list)
+        deletar.appendChild(nomeDeletar)
+        list.appendChild(deletar)
+    
+      }
     }
+
+    function excluirElemento(pos) {
+      nomes.splice(pos, 1)
+
+      renderizaElemento()
+    }
+
+    renderizaElemento()
 
   </script>
 </body>
