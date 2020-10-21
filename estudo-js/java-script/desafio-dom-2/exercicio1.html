@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="component">
+    <button class="component__new">Me aperte</button>
+  </div>
+
+  <script>
+    
+    var btnElement = document.querySelector('.component__new')
+    
+    btnElement.onclick = function() {
+      var newElement = document.createElement('div')
+
+      var textNewElement = document.createTextNode('quadrado')
+      newElement.appendChild(textNewElement)
+
+      newElement.style.width = '100px'
+      newElement.style.height = '100px'
+      newElement.style.backgroundColor = 'red'
+
+      var component = document.querySelector('.component')
+      component.appendChild(newElement)
+    }
+    
+    
+    
+
+  </script>
+
+</body>
+</html>

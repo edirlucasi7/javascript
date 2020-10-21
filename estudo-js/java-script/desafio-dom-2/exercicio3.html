@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class="component">
+
+  </div>
+
+
+  <script>
+    var component = document.querySelector('.component');
+    
+    var inputElement = document.createElement('input')
+    component.appendChild(inputElement);
+
+    var btnElement = document.createElement('button')
+    btnElement.setAttribute('onclick', 'adicionar()');
+    var textBtnElement = document.createTextNode('Criar novo nome')
+
+    btnElement.appendChild(textBtnElement)
+    component.appendChild(btnElement)
+    
+    var nomes = ["Diego", "Gabriel", "Lucas"]
+    
+    for(nome of nomes) {
+      criarElemento(`● ${nome}`)
+    }
+
+    function adicionar() {
+      criarElemento(`● ${inputElement.value}`);
+
+      inputElement.value = "";
+
+      inputElement.focus()
+      
+    }
+   
+    function criarElemento(nome) {
+      var list = document.createElement('ul')
+      var textElement = document.createTextNode(nome)
+
+      list.appendChild(textElement)
+      component.appendChild(list)
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div>
+    <input type="text" name="nome" />
+    <button class="mostrarNome">Alterar nome</button>
+  </div>
+
+  <script>
+    var inputElement = document.querySelector('input[name=nome]')
+    var btnElement = document.querySelector('.mostrarNome')
+
+    btnElement.onclick = function() {
+      var valueInputElement = inputElement.value
+      
+      alert(valueInputElement)
+    }
+    
+  
+  </script>
+
+</body>
+</html>

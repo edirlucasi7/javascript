@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="teste">
+    <input type="text" class="input1">
+    <input type="text" name="input2">
+    <input type="text" name="input3">
+  </div>
+
+  <script>
+    // var teste = document.getElementById('teste')
+    var teste = document.querySelector('div#teste input')
+    var input1 = document.querySelector('.input1')
+    var input2 = document.getElementsByTagName('input')[0]
+    var input3 = document.getElementById('teste')
+
+    console.log(teste)
+    console.log(input1)
+    console.log(input2)
+    console.log(input3)
+
+
+  </script>
+</body>
+</html>
