@@ -27,7 +27,7 @@
 
     var ulElement = document.querySelector('.element')
 
-    var nomes = ["Diego", "Gabriel", "Lucas"]
+    var nomes = JSON.parse(localStorage.getItem('lista_nomes')) || []
 
     function adicionar() {
       nomes.push(inputElement.value)
@@ -37,6 +37,8 @@
       inputElement.value = "";
 
       inputElement.focus()
+      
+      salvarNoStorage()
       
     }
    
@@ -67,6 +69,12 @@
       nomes.splice(pos, 1)
 
       renderizaElemento()
+
+      salvarNoStorage()
+    }
+
+    function salvarNoStorage() {
+      localStorage.setItem('lista_nomes', JSON.stringify(nomes))
     }
 
     renderizaElemento()
